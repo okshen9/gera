@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <wchar.h>
 
 using namespace std;
 
@@ -19,6 +20,8 @@ int main() {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif */
+    
+    setlocale(LC_ALL, "ru_RU.utf8");
     string s, str;
 
     ifstream in("input.txt");
@@ -26,12 +29,12 @@ int main() {
         str += s;
     in.close();
     int f = 0;
-    for (char i = 'а'; i <= 'я'; i++)
+    for (wchar_t i = L'а'; i <= L'я'; i++)
     {
         int count = 0;
         for (int k = 0; k < str.length(); k++)
         {
-            if (str[k] == i || str[k] == i - '32')
+            if (str[k] == i || str[k] == i - L'32')
                 count++;
             f++;
         }
